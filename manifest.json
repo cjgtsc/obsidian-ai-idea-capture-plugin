@@ -1,0 +1,10 @@
+{
+	"id": "obsidian-ai-idea-capture-plugin",
+	"name": "AI Idea Capture",
+	"version": "1.0.1",
+	"minAppVersion": "0.15.0",
+	"description": "An AI-powered Obsidian plugin that seamlessly captures and structures ideas, voice notes, and images from instant messengers into your vault.",
+	"author": "cjgtsc",
+	"authorUrl": "https://github.com/cjgtsc",
+	"isDesktopOnly": true
+}
