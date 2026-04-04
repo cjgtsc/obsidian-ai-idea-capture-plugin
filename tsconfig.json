@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"target": "ES6",
+		"module": "CommonJS",
+		"lib": ["DOM", "ES2020"],
+		"strict": true,
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"outDir": ".",
+		"sourceMap": true
+	},
+	"include": ["main.ts"]
+}
