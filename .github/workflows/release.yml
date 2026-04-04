@@ -1,0 +1,51 @@
+name: Release Obsidian plugin
+on:
+  push:
+    tags:
+      - "v*"
+      - "V*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22' # 升级到长期支持的 Node 22
+          
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Build plugin
+        run: |
+          pnpm install
+          pnpm run build
+
+      - name: Create Release Zip
+        run: |
+          zip -j obsidian-ai-idea-capture-plugin.zip dist/main.js dist/manifest.json dist/styles.css
+
+      - name: Create Release
+        id: create_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v2 # 升级到 v2
+        with:
+          tag_name: ${{ github.ref }}
+          name: ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          files: |
+            dist/main.js
+            dist/manifest.json
+            dist/styles.css
+            obsidian-ai-idea-capture-plugin.zip
