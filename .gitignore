@@ -1,0 +1,28 @@
+# Node.js
+node_modules/
+package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Compiled/Build
+*.js
+*.map
+main.js
+dist/
+build/
+.publish_temp/
+
+# Secrets & Env
+.env
+.secret
+*.env
+
+# Project Specific
+.obsidian/
+.recycle/

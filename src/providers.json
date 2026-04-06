@@ -1,0 +1,304 @@
+{
+  "llm": {
+    "openai": {
+      "label": "OpenAI",
+      "protocol": "openai-chat",
+      "url": "https://api.openai.com/v1/chat/completions",
+      "model": "gpt-5-mini",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "anthropic": {
+      "label": "Anthropic",
+      "protocol": "minimax-v1",
+      "url": "https://api.anthropic.com/v1/messages",
+      "model": "claude-4.6-sonnet",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "google": {
+      "label": "Google Gemini",
+      "protocol": "openai-chat",
+      "url": "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+      "model": "gemini-3-flash-preview",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "deepseek": {
+      "label": "DeepSeek",
+      "protocol": "openai-chat",
+      "url": "https://api.deepseek.com/chat/completions",
+      "model": "deepseek-v3.2",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "kimi-cn": {
+      "label": "Kimi (CN)",
+      "protocol": "openai-chat",
+      "url": "https://api.moonshot.cn/v1/chat/completions",
+      "model": "kimi-k2.5",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "kimi": {
+      "label": "Kimi (Global)",
+      "protocol": "openai-chat",
+      "url": "https://api.moonshot.ai/v1/chat/completions",
+      "model": "kimi-k2.5",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "qwen-cn": {
+      "label": "Qwen (CN)",
+      "protocol": "openai-chat",
+      "url": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+      "model": "qwen-3.5-omni",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "qwen": {
+      "label": "Qwen (Global)",
+      "protocol": "openai-chat",
+      "url": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions",
+      "model": "qwen-3.5-omni",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "minimax-cn": {
+      "label": "MiniMax (CN)",
+      "protocol": "minimax-v1",
+      "url": "https://api.minimaxi.com/anthropic/v1/messages",
+      "model": "MiniMax-M2.7",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "minimax": {
+      "label": "MiniMax (Global)",
+      "protocol": "minimax-v1",
+      "url": "https://api.minimax.io/anthropic/v1/messages",
+      "model": "MiniMax-M2.7",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "glm-cn": {
+      "label": "GLM (CN)",
+      "protocol": "openai-chat",
+      "url": "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+      "model": "glm-5",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "glm": {
+      "label": "GLM (Global)",
+      "protocol": "openai-chat",
+      "url": "https://api.z.ai/api/paas/v4/chat/completions",
+      "model": "glm-5",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "stepfun-cn": {
+      "label": "StepFun (CN)",
+      "protocol": "openai-chat",
+      "url": "https://api.stepfun.com/v1/chat/completions",
+      "model": "step-3.5-flash",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "stepfun": {
+      "label": "StepFun (Global)",
+      "protocol": "openai-chat",
+      "url": "https://api.stepfun.ai/v1/chat/completions",
+      "model": "step-3.5-flash",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "grok": {
+      "label": "xAI Grok",
+      "protocol": "openai-chat",
+      "url": "https://api.x.ai/v1/chat/completions",
+      "model": "grok-4.20-reasoning",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "openrouter": {
+      "label": "OpenRouter",
+      "protocol": "openai-chat",
+      "url": "https://openrouter.ai/api/v1/chat/completions",
+      "model": "google/gemini-3-flash-preview",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "siliconflow": {
+      "label": "SiliconFlow",
+      "protocol": "openai-chat",
+      "url": "https://api.siliconflow.cn/v1/chat/completions",
+      "model": "deepseek-ai/DeepSeek-V3",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "groq": {
+      "label": "Groq",
+      "protocol": "openai-chat",
+      "url": "https://api.groq.com/openai/v1/chat/completions",
+      "model": "llama-4-scout-17b-instruct",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "xiaomi": {
+      "label": "Xiaomi (MiMo)",
+      "protocol": "openai-chat",
+      "url": "https://api.xiaomimimo.com/v1/chat/completions",
+      "model": "mimo-v2-omni",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "ollama": {
+      "label": "Ollama",
+      "protocol": "openai-chat",
+      "url": "http://localhost:11434/v1/chat/completions",
+      "model": "llama3",
+      "fields": ["baseUrl", "model"],
+      "isLocal": true
+    },
+    "custom-openai": {
+      "label": "Custom (OpenAI Compatible)",
+      "protocol": "openai-chat",
+      "url": "",
+      "model": "",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "custom-anthropic": {
+      "label": "Custom (Anthropic Compatible)",
+      "protocol": "minimax-v1",
+      "url": "",
+      "model": "",
+      "fields": ["apiKey", "baseUrl", "model"]
+    }
+  },
+  "stt": {
+    "openai-whisper": {
+      "label": "OpenAI",
+      "protocol": "openai-stt",
+      "url": "https://api.openai.com/v1/audio/transcriptions",
+      "model": "gpt-4o-mini-transcribe",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "google": {
+      "label": "Google Gemini",
+      "protocol": "openai-chat",
+      "url": "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+      "model": "gemini-3-flash-preview",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "groq-whisper": {
+      "label": "Groq",
+      "protocol": "openai-stt",
+      "url": "https://api.groq.com/openai/v1/audio/transcriptions",
+      "model": "whisper-large-v3-turbo",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "siliconflow-whisper": {
+      "label": "SiliconFlow",
+      "protocol": "openai-stt",
+      "url": "https://api.siliconflow.cn/v1/audio/transcriptions",
+      "model": "FunAudioLLM/SenseVoiceSmall",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "faster-whisper": {
+      "label": "Faster-Whisper (Local)",
+      "protocol": "openai-stt",
+      "url": "http://localhost:8080/v1/audio/transcriptions",
+      "model": "base",
+      "fields": ["apiKey", "baseUrl", "model"],
+      "isLocal": true
+    },
+    "openrouter-stt": {
+      "label": "OpenRouter (Omni)",
+      "protocol": "openai-chat",
+      "url": "https://openrouter.ai/api/v1/chat/completions",
+      "model": "google/gemini-3-flash",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "ollama-stt": {
+      "label": "Ollama",
+      "protocol": "openai-stt",
+      "url": "http://localhost:11434/v1/audio/transcriptions",
+      "model": "whisper",
+      "fields": ["baseUrl", "model"],
+      "isLocal": true
+    },
+    "custom-openai": {
+      "label": "Custom (OpenAI Compatible)",
+      "protocol": "openai-stt",
+      "url": "",
+      "model": "",
+      "fields": ["apiKey", "baseUrl", "model"]
+    }
+  },
+  "vision": {
+    "openai": {
+      "label": "OpenAI",
+      "protocol": "openai-chat",
+      "url": "https://api.openai.com/v1/chat/completions",
+      "model": "gpt-5-mini",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "google": {
+      "label": "Google Gemini",
+      "protocol": "openai-chat",
+      "url": "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+      "model": "gemini-3-flash-preview",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "anthropic": {
+      "label": "Anthropic",
+      "protocol": "minimax-v1",
+      "url": "https://api.anthropic.com/v1/messages",
+      "model": "claude-4.6-sonnet",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "openrouter": {
+      "label": "OpenRouter",
+      "protocol": "openai-chat",
+      "url": "https://openrouter.ai/api/v1/chat/completions",
+      "model": "google/gemini-3.1-flash-lite",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "siliconflow-vision": {
+      "label": "SiliconFlow",
+      "protocol": "openai-chat",
+      "url": "https://api.siliconflow.cn/v1/chat/completions",
+      "model": "deepseek-ai/DeepSeek-V3",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "ollama-vision": {
+      "label": "Ollama",
+      "protocol": "openai-chat",
+      "url": "http://localhost:11434/v1/chat/completions",
+      "model": "llava",
+      "fields": ["baseUrl", "model"],
+      "isLocal": true
+    },
+    "custom-openai": {
+      "label": "Custom (OpenAI Compatible)",
+      "protocol": "openai-chat",
+      "url": "",
+      "model": "",
+      "fields": ["apiKey", "baseUrl", "model"]
+    },
+    "custom-anthropic": {
+      "label": "Custom (Anthropic Compatible)",
+      "protocol": "minimax-v1",
+      "url": "",
+      "model": "",
+      "fields": ["apiKey", "baseUrl", "model"]
+    }
+  },
+  "search": {
+    "tavily": {
+      "label": "Tavily",
+      "protocol": "tavily",
+      "url": "https://api.tavily.com/search",
+      "fields": ["apiKey", "baseUrl"]
+    },
+    "serper": {
+      "label": "Google Serper",
+      "protocol": "google-serper",
+      "url": "https://google.serper.dev/search",
+      "fields": ["apiKey", "baseUrl"]
+    },
+    "custom-serper": {
+      "label": "Custom (Serper Compatible)",
+      "protocol": "google-serper",
+      "url": "http://127.0.0.1:8002",
+      "fields": ["apiKey", "baseUrl"]
+    },
+    "custom-tavily": {
+      "label": "Custom (Tavily Compatible)",
+      "protocol": "tavily",
+      "url": "",
+      "fields": ["apiKey", "baseUrl"]
+    }
+  }
+}

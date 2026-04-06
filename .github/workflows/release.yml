@@ -1,0 +1,44 @@
+name: Release Obsidian Plugin
+
+on:
+  push:
+    # 兼容大写和小写的 V，例如 v1.0.6 和 V1.0.6
+    tags:
+      - "v*"
+      - "V*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # 必须：允许流水线脚本向此仓库创建 Release 并上传文件
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build Plugin
+        run: pnpm run build
+
+      # 将生成的构建物直接附加到 GitHub Release 页面上
+      - name: Publish Release Assets
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            dist/main.js
+            dist/manifest.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
