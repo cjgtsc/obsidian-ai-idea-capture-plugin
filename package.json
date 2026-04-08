@@ -1,11 +1,11 @@
 {
   "name": "obsidian-ai-idea-capture-plugin",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "main.js",
   "scripts": {
-    "build": "mkdir -p dist && npx esbuild main.ts --bundle --minify --external:obsidian --platform=node --outfile=dist/main.js && cp manifest.json dist/",
-    "dev": "mkdir -p dist && npx esbuild main.ts --bundle --minify --external:obsidian --platform=node --outfile=dist/main.js && cp manifest.json dist/",
-    "watch": "mkdir -p dist && npx esbuild main.ts --bundle --watch --external:obsidian --platform=node --outfile=dist/main.js && cp manifest.json dist/",
+    "build": "mkdir -p dist && npx esbuild main.ts --bundle --minify --external:obsidian --platform=node --outfile=dist/main.js && cp manifest.json dist/ && cp styles.css dist/",
+    "dev": "mkdir -p dist && npx esbuild main.ts --bundle --minify --external:obsidian --platform=node --outfile=dist/main.js && cp manifest.json dist/ && cp styles.css dist/",
+    "watch": "mkdir -p dist && npx esbuild main.ts --bundle --watch --external:obsidian --platform=node --outfile=dist/main.js && cp manifest.json dist/ && cp styles.css dist/",
     "publish": "node scripts/publish.mjs"
   },
   "devDependencies": {

@@ -126,7 +126,7 @@ export interface SessionData {
     obsidianPath: string;
     lastUpdate: string;
     fragments: Array<{ type: string; content: string; timestamp: string }>;
-    history: Array<{ role: string; text: string }>;
+    history: Array<{ role: string; text: string; timestamp: string }>;
     unprocessedCount: number;
     hasSubstance: boolean;
     originalPath: string;

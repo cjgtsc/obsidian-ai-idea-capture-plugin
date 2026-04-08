@@ -44,7 +44,7 @@ export default class IdeaCapturePlugin extends Plugin {
 
         // 3. Initialize Services
         this.llmService = new LLMService(this.settings, (h) => this.securityManager.decrypt(h));
-        this.mediaService = new MediaService(this.settings, (h) => this.securityManager.decrypt(h));
+        this.mediaService = new MediaService(this.app, this.settings, (h) => this.securityManager.decrypt(h));
 
         // 4. Initialize Handler (The Brain)
         this.chatHandler = new ChatHandler(this.app, this.settings, this.llmService, this.mediaService, this.sessionManager, this.securityManager, this.authService);

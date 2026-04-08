@@ -55,12 +55,21 @@ export class LLMService {
               }) 
             : Prompts.getArchive(lang, headers);
 
-        const userContent = mode === "INTERACTION" 
-            ? "对话历史：\n" + session.history.map(h => h.role + ": " + h.text).join("\n") 
-            : `<conversation>\n${session.history
+        // 截断保护：保留尾部（最近的对话），防止小窗口模型溢出
+        const MAX_CONV_LEN = 30000;
+        const trimTail = (text: string) => text.length > MAX_CONV_LEN ? '...\n' + text.slice(-MAX_CONV_LEN) : text;
+
+        let userContent: string;
+        if (mode === "INTERACTION") {
+            const raw = session.history.map(h => h.role + ": " + h.text).join("\n");
+            userContent = "Conversation:\n" + trimTail(raw);
+        } else {
+            const raw = session.history
                 .filter(h => !h.text.includes('<details>') && !h.text.includes('## ')) // 关键过滤：移除历史中的旧笔记内容
                 .map(h => `(${moment(h.timestamp).format('HH:mm')} ${h.role === 'user' ? userLabel : botLabel}): ${h.text}`)
-                .join('\n')}\n</conversation>\n<sources>\n${searchData}\n</sources>`;
+                .join('\n');
+            userContent = `<conversation>\n${trimTail(raw)}\n</conversation>\n<sources>\n${searchData}\n</sources>`;
+        }
 
         return await this.getProvider().chat(sys, userContent, 4096);
     }

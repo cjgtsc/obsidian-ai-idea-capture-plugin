@@ -1,14 +1,16 @@
-import { requestUrl, Notice, moment } from "obsidian";
+import { App, requestUrl, Notice, moment } from "obsidian";
 import { IdeaCaptureSettings, PROVIDERS } from "../types";
 import { STTProviderFactory } from "./stt/factory";
 import { VisionProviderFactory } from "./vision/factory";
 import { SearchProviderFactory } from "./search/factory";
 
 export class MediaService {
+    app: App;
     settings: IdeaCaptureSettings;
     decrypt: (hash: string) => string;
 
-    constructor(settings: IdeaCaptureSettings, decryptFn: (hash: string) => string) {
+    constructor(app: App, settings: IdeaCaptureSettings, decryptFn: (hash: string) => string) {
+        this.app = app;
         this.settings = settings;
         this.decrypt = decryptFn;
     }
@@ -27,8 +29,8 @@ export class MediaService {
         try {
             const res = await requestUrl({ url });
             const titleMatch = res.text.match(/<title>(.*?)<\/title>/i);
-            return `[链接标题]: ${titleMatch ? titleMatch[1].trim() : '网页'}\nURL: ${url}`;
-        } catch (e) { return `[链接]: ${url}`; }
+            return `[Link Title]: ${titleMatch ? titleMatch[1].trim() : 'Web Page'}\nURL: ${url}`;
+        } catch (e) { return `[Link]: ${url}`; }
     }
 
     async callVision(absPath: string): Promise<string> {
@@ -41,7 +43,7 @@ export class MediaService {
         }
 
         try {
-            const adapter = (this.settings as any)._app?.vault.adapter || (window as any).app.vault.adapter;
+            const adapter = this.app.vault.adapter;
             let base64Data = "";
             try {
                 const relPath = absPath.replace(adapter.basePath, "").replace(/^\//, "");

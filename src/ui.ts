@@ -13,44 +13,6 @@ export class IdeaCaptureSettingTab extends PluginSettingTab {
         // 确保语言环境在每次渲染前是对齐的
         setLanguage(this.p.settings.language);
 
-        if (!document.getElementById('ideacapture-styles')) {
-            const s = document.createElement("style");
-            s.id = 'ideacapture-styles';
-            s.textContent = `
-                .ideacapture-tab-header { display: flex; border-bottom: 1px solid var(--background-modifier-border); margin-bottom: 20px; }
-                .ideacapture-tab-item { padding: 10px 20px; cursor: pointer; border-bottom: 2px solid transparent; color: var(--text-muted); }
-                .ideacapture-tab-item.is-active { color: var(--text-normal); border-bottom-color: var(--interactive-accent); font-weight: bold; }
-                .ideacapture-setting-group { background-color: var(--background-secondary); border-radius: 12px; padding: 15px; margin-bottom: 20px; border: 1px solid var(--background-modifier-border); }
-                .ideacapture-setting-item { background-color: var(--background-primary); border-radius: 8px; padding: 10px; margin-bottom: 8px; border: 1px solid var(--background-modifier-border-highlight); }
-                .ideacapture-btn { 
-                    background-color: var(--background-primary); 
-                    border: 1px solid var(--background-modifier-border); 
-                    border-radius: 4px; 
-                    box-shadow: none !important; 
-                    cursor: pointer; 
-                    padding: 4px 10px; 
-                    transition: background-color 0.2s; 
-                    display: inline-flex; 
-                    align-items: center; 
-                    justify-content: center; 
-                    height: 30px; 
-                    min-width: 36px;
-                    margin-left: 8px;
-                }
-                .ideacapture-btn:hover { background-color: var(--background-modifier-hover); }
-                .ideacapture-device-list { margin-top: 8px; }
-                .ideacapture-device-item { display: flex; justify-content: space-between; align-items: center; background-color: var(--background-primary); border-radius: 8px; padding: 12px; border: 1px solid var(--background-modifier-border-highlight); }
-                .ideacapture-unbind-btn { background-color: var(--text-error); color: white; border: none; border-radius: 5px; padding: 4px 12px; cursor: pointer; font-size: 0.85em; font-weight: bold; transition: opacity 0.2s; }
-                .ideacapture-unbind-btn:hover { opacity: 0.8; }
-                .ideacapture-success-text { color: var(--text-success); font-size: 0.85em; margin-top: 5px; font-weight: bold; }
-                .ideacapture-banner { 
-                    width: 100%; 
-                    margin-bottom: 20px; 
-                    display: block; 
-                }
-            `;
-            document.head.appendChild(s);
-        }
         const head = c.createEl("div", { cls: "ideacapture-tab-header" });
         const t1 = head.createEl("div", { text: t("general"), cls: "ideacapture-tab-item " + (this.activeTab === "general" ? "is-active" : "") });
         const t2 = head.createEl("div", { text: t("ai"), cls: "ideacapture-tab-item " + (this.activeTab === "ai" ? "is-active" : "") });
@@ -134,9 +96,9 @@ export class IdeaCaptureSettingTab extends PluginSettingTab {
             const devSection = group.createEl("div", { cls: "ideacapture-device-list" });
             config.authorizedIds.forEach(id => {
                 const row = devSection.createEl("div", { cls: "ideacapture-device-item" });
-                const info = row.createEl("div", { style: "display: flex; flex-direction: column; gap: 4px;" });
-                info.createEl("div", { text: t("authorizedDevices"), style: "font-weight: bold; font-size: 0.9em; color: var(--text-normal);" });
-                info.createEl("div", { text: t("chatId") + ": " + id, style: "font-size: 0.85em; color: var(--text-muted);" });
+                const info = row.createEl("div", { cls: "ideacapture-device-info" });
+                info.createEl("div", { text: t("authorizedDevices"), cls: "ideacapture-device-label" });
+                info.createEl("div", { text: t("chatId") + ": " + id, cls: "ideacapture-device-id" });
                 const unbind = row.createEl("button", { text: t("unbind"), cls: "ideacapture-unbind-btn" });
                 unbind.onclick = async () => { 
                     await this.p.authService.unbind(platform, id); 
