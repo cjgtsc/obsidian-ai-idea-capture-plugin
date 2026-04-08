@@ -1,0 +1,123 @@
+/* AI Idea Capture - Plugin Styles */
+
+/* ── 标签页导航 ── */
+.ideacapture-tab-header {
+    display: flex;
+    border-bottom: 1px solid var(--background-modifier-border);
+    margin-bottom: 20px;
+}
+
+.ideacapture-tab-item {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    color: var(--text-muted);
+}
+
+.ideacapture-tab-item.is-active {
+    color: var(--text-normal);
+    border-bottom-color: var(--interactive-accent);
+    font-weight: bold;
+}
+
+/* ── 设置分组 / 条目 ── */
+.ideacapture-setting-group {
+    background-color: var(--background-secondary);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid var(--background-modifier-border);
+}
+
+.ideacapture-setting-item {
+    background-color: var(--background-primary);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 8px;
+    border: 1px solid var(--background-modifier-border-highlight);
+}
+
+/* ── 通用按钮 ── */
+.ideacapture-btn {
+    background-color: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    box-shadow: none !important;
+    cursor: pointer;
+    padding: 4px 10px;
+    transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    min-width: 36px;
+    margin-left: 8px;
+}
+
+.ideacapture-btn:hover {
+    background-color: var(--background-modifier-hover);
+}
+
+/* ── 已授权设备列表 ── */
+.ideacapture-device-list {
+    margin-top: 8px;
+}
+
+.ideacapture-device-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-primary);
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid var(--background-modifier-border-highlight);
+}
+
+.ideacapture-device-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ideacapture-device-label {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: var(--text-normal);
+}
+
+.ideacapture-device-id {
+    font-size: 0.85em;
+    color: var(--text-muted);
+}
+
+/* ── 解绑按钮 ── */
+.ideacapture-unbind-btn {
+    background-color: var(--text-error);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 4px 12px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: bold;
+    transition: opacity 0.2s;
+}
+
+.ideacapture-unbind-btn:hover {
+    opacity: 0.8;
+}
+
+/* ── 状态文本 ── */
+.ideacapture-success-text {
+    color: var(--text-success);
+    font-size: 0.85em;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* ── Banner ── */
+.ideacapture-banner {
+    width: 100%;
+    margin-bottom: 20px;
+    display: block;
+}
