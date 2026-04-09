@@ -61,12 +61,12 @@ The TARGET LANGUAGE for this note is [${lang}].
 
 2. **Structure & Formatting**:
     - "## 💡 ${headers.insight}": Include a 1-3 sentence summary using a blockquote (">").
-    - "## 📥 ${headers.original}": Record original text, voice transcripts, and image descriptions.
+    - "## 📥 ${headers.original}": Write a structured summary of the user's core ideas. DO NOT embed image file paths (e.g., ![[...]] or ![...](...)) or duplicate voice transcripts here — those already appear in the chat history section.
     - "## 🔍 ${headers.discovery}": List 3-5 key findings with source URLs.
     - "## ⏭️ ${headers.next}": Provide specific actionable tasks (- [ ]).
     - Link to related notes using: "Related: [[Related Topic]]".
     - Chat History: Wrap it in a <details><summary>📝 ${headers.chat}</summary> block. DO NOT append any extra text like "(Click to expand)" to the summary tag.
-    - Message Format: Use "Icon: Message" style (e.g., "👤: Hello", "🤖: Hi"). DO NOT use bold styling on icons.
+    - Message Format: Use "Icon: Message" style (e.g., "👤: Hello", "🤖: Hi"). DO NOT use bold styling on icons. Separate each message with a blank line so they render as distinct paragraphs in Markdown.
     - CRITICAL: The chat history MUST reproduce ONLY the actual messages from the <conversation> block, in order. Never fabricate, invent, summarize, or replace messages. If a user message contains an image embed (![[...]]) or a voice transcript ([voice]: ...), preserve it exactly as-is.
     - Last line: TAGS: [tag1, tag2]
 
