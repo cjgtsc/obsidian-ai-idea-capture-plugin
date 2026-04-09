@@ -371,27 +371,6 @@ export class ChatHandler {
             if (cleanBody.endsWith("```")) cleanBody = cleanBody.replace(/\n?```$/, "");
             cleanBody = cleanBody.trim();
 
-            // 4. 图片嵌入注入：从 fragments 提取图片 embed，插入原始想法章节
-            const imageEmbeds = s.fragments
-                .filter(f => f.type === 'image')
-                .map(f => {
-                    const match = f.content.match(/!\[\[.*?\]\]/);
-                    return match ? match[0] : '';
-                })
-                .filter(e => e.length > 0);
-            if (imageEmbeds.length > 0) {
-                const embedBlock = '\n\n' + imageEmbeds.join('\n\n');
-                // 找到 "## 📥" 章节末尾（下一个 "## " 之前）插入图片
-                const originalHeader = /^(## 📥[^\n]*\n)([\s\S]*?)(?=\n## )/m;
-                const headerMatch = cleanBody.match(originalHeader);
-                if (headerMatch) {
-                    cleanBody = cleanBody.replace(originalHeader, headerMatch[1] + headerMatch[2] + embedBlock + '\n');
-                } else {
-                    // 兜底：如果没找到标准章节结构，在文末追加
-                    cleanBody += embedBlock;
-                }
-            }
-
             const fileName = "Idea-" + moment().format("YYYYMMDD") + "-" + s.theme.replace(/[\\/:*?"<>|]/g, "").substring(0, 50) + ".md";
             const path = this.settings.inboxFolder + "/" + fileName;
             await this.ensureFolderExists(this.settings.inboxFolder);
