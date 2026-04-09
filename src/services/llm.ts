@@ -65,7 +65,7 @@ export class LLMService {
             userContent = "Conversation:\n" + trimTail(raw);
         } else {
             const raw = session.history
-                .filter(h => !h.text.includes('<details>') && !h.text.includes('## ')) // 关键过滤：移除历史中的旧笔记内容
+                .filter(h => !h.text.includes('<details>')) // 仅过滤 /resume 注入的旧归档笔记（含 <details> 标记）
                 .map(h => `(${moment(h.timestamp).format('HH:mm')} ${h.role === 'user' ? userLabel : botLabel}): ${h.text}`)
                 .join('\n');
             userContent = `<conversation>\n${trimTail(raw)}\n</conversation>\n<sources>\n${searchData}\n</sources>`;

@@ -321,7 +321,18 @@ export class ChatHandler {
 
         new Notice(t('processing'));
         await this.sendDebug(platform, chatId, `📦 Archiving (theme: ${s.theme})...`);
-        const historyContext = s.history.filter(h => h.role === 'user').map(h => h.text).join('\n').substring(0, 1000);
+        // 清洗 historyContext：移除 Obsidian 嵌入语法与多模态前缀，减少 getIntent 噪音
+        const historyContext = `Theme: ${s.theme}\n` + s.history
+            .filter(h => h.role === 'user')
+            .map(h => h.text
+                .replace(/!\[\[.*?\]\]\n*/g, '')   // 移除 ![[embed]] 嵌入
+                .replace(/^\[vision\]: /m, '')      // 剥离 vision 前缀
+                .replace(/^\[voice\]: /m, '')       // 剥离 voice 前缀
+                .trim()
+            )
+            .filter(t => t.length > 0)
+            .join('\n')
+            .substring(0, 1000);
         try {
             const { intent, res } = await this.withTyping(platform, chatId, async () => {
                 await this.sendDebug(platform, chatId, `🧠 Analyzing archive intent...`);

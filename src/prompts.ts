@@ -67,6 +67,7 @@ The TARGET LANGUAGE for this note is [${lang}].
     - Link to related notes using: "Related: [[Related Topic]]".
     - Chat History: Wrap it in a <details><summary>📝 ${headers.chat}</summary> block. DO NOT append any extra text like "(Click to expand)" to the summary tag.
     - Message Format: Use "Icon: Message" style (e.g., "👤: Hello", "🤖: Hi"). DO NOT use bold styling on icons.
+    - CRITICAL: The chat history MUST reproduce ONLY the actual messages from the <conversation> block, in order. Never fabricate, invent, summarize, or replace messages. If a user message contains an image embed (![[...]]) or a voice transcript ([voice]: ...), preserve it exactly as-is.
     - Last line: TAGS: [tag1, tag2]
 
 3. **Tone**: Analytical, structured, and helpful. Output ONLY the raw Markdown content. DO NOT wrap the output in any code blocks or use any triple backticks around the entire response. Just provide the plain text.`
