@@ -1,10 +1,8 @@
 # AI Idea Capture
 
 ![Scene 1: Voice Inspiration](./src/assets/AI-Idea-capture-scence1.jpg)
-
 ![Scene 2: Web News Summary](./src/assets/AI-Idea-capture-scence2.jpg)
-
-![Scene 3: Vision & Market Research](../src/assets/AI-Idea-capture-scence3.jpg)
+![Scene 3: Vision & Market Research](./src/assets/AI-Idea-capture-scence3.jpg)
 
 ---
 
