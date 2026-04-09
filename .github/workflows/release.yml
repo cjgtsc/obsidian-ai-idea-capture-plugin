@@ -2,10 +2,11 @@ name: Release Obsidian Plugin
 
 on:
   push:
-    # 兼容大写和小写的 V，例如 v1.0.6 和 V1.0.6
+    # 兼容 v1.0.6, V1.0.6, 1.0.6 以及所有其他标签
     tags:
       - "v*"
       - "V*"
+      - "[0-9]*"
 
 jobs:
   build:
@@ -40,5 +41,6 @@ jobs:
           files: |
             dist/main.js
             dist/manifest.json
+            dist/styles.css
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
