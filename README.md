@@ -1,5 +1,13 @@
 # AI Idea Capture
 
+![Scene 1: Voice Inspiration](./src/assets/AI-Idea-capture-scence1.jpg)
+
+![Scene 2: Web News Summary](./src/assets/AI-Idea-capture-scence2.jpg)
+
+![Scene 3: Vision & Market Research](../src/assets/AI-Idea-capture-scence3.jpg)
+
+---
+
 [English](#english-documentation) | [简体中文](#chinese-documentation)
 
 ---
@@ -22,7 +30,7 @@ An Obsidian plugin that seamlessly connects to Telegram/Discord, using AI (LLMs,
 - **12 Languages Supported**: UI and AI Prompts auto-align with your Obsidian language setting.
 
 ### ⚙️ How to use
-1. Create a Bot via [BotFather](https://t.me/botfather) in Telegram.
+1. Create a Bot via [BotFather](https://t.me/botfather) in Telegram, or [Discord Developer Portal](https://discord.com/developers/applications) (Enable **Message Content Intent** in Bot settings).
 2. Put the Bot Token in the plugin settings.
 3. Set up your AI models (LLM, STT, Vision, Search).
 4. Send `/activate` to your bot and enter the code shown in Obsidian to bind your device.
@@ -48,7 +56,7 @@ An Obsidian plugin that seamlessly connects to Telegram/Discord, using AI (LLMs,
 - **12 语种支持**：UI 和底层 Prompt 提示词自动跟随您的 Obsidian 语言设置。
 
 ### ⚙️ 如何使用
-1. 在 Telegram 中通过 [BotFather](https://t.me/botfather) 创建一个机器人。
+1. 在 Telegram 中通过 [BotFather](https://t.me/botfather) 创建机器人，或在 [Discord Developer Portal](https://discord.com/developers/applications) 创建（需在 Bot 设置中开启 **Message Content Intent**）。
 2. 在插件设置中填入 Bot Token。
 3. 配置您喜欢的大模型（LLM, STT, Vision）。
 4. 向您的机器人发送 `/activate`，然后输入 Obsidian 设置面板中显示的激活码完成绑定。
